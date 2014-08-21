@@ -78,10 +78,12 @@ module HumanApi
 				elsif options[:id].present?
 					# Make a request for a single 
 					url += "/#{options[:id]}"
-				end
+        end
+
+        query_params = options[:query_params] || {}
 
 				# Make the request finally
-				result = get(url, :access_token => token)
+				result = get(url, {:access_token => token}.merge(query_params))
 
 				# Converting to json the body string
 				JSON.parse(result.body)
