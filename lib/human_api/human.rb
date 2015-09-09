@@ -83,7 +83,7 @@ module HumanApi
         query_params = options[:query_params] || {}
 
 				# Make the request finally
-				result = get(url, {:access_token => token}.merge(query_params))
+				result = get(url, {:access_token => token}.merge(query_params), timeout: options[:timeout])
 
 				# Converting to json the body string
 				JSON.parse(result.body)
