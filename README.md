@@ -86,6 +86,9 @@ Mixin' up these methods with some options will give you what you want.
 u.human.query(:activities, :summary => true) #=> will give you a summary of the activities
 u.human.query(:sleeps, :date => "2014-01-01") #=> Will give you a single sleep measurement
 
+Timeout option:
+u.human.query(:activities, query_params: {:summary => true}, {timeout: 60})
+
 # Getting KPIs (KPIs are just single values you get to retrieve a measurements average value)
 u.human.query(:weight) #=> Will give you a single weight value (The avg I guess)
 
