@@ -65,8 +65,8 @@ module HumanApi
 				else
 					if options[:summary] == true
 						url += "/summary"
-          elsif options[:summaries] == true
-            url += "/summaries"
+					elsif options[:summaries] == true
+						url += "/summaries"
 					end
 				end
 
@@ -80,10 +80,10 @@ module HumanApi
 					url += "/#{options[:id]}"
         end
 
-        query_params = options[:query_params] || {}
+				query_params = options[:query_params] || {}
 
 				# Make the request finally
-				result = get(url, {:access_token => token}.merge(query_params), timeout: options[:timeout])
+				result = get(url, {:access_token => token}.merge(query_params))
 
 				# Converting to json the body string
 				JSON.parse(result.body)
